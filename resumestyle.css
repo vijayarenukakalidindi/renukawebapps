@@ -1,0 +1,55 @@
+.parent
+{
+  display:flex;
+  width:100%;
+  border:2px solid lime;
+}
+
+.left
+{
+  border:2px solid teal;
+  width:30%;
+  padding:2%;
+  margin:2%;
+}
+
+.right
+{
+  border:2px solid maroon;
+  width:70%;
+  padding:2%;
+  margin:2%;
+}
+img
+{
+  border-radius: 50%;
+  width:150px;;
+  height:150px;
+}
+hr
+{
+ background-color: red;
+}
+#co
+{
+  color:blue;
+}
+#para,in
+{
+  font-size: 20px;
+}
+li
+{
+  color:BlueViolet;
+}
+#in
+{
+  color:purple;
+}
+tr
+{
+  font-style: italic;
+}
+table{
+  background-color:pink;
+}
