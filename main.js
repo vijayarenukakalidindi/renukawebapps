@@ -1,26 +1,49 @@
-function Loadjson(file,callback){
-  var x= new XMLHttpRequest(); //create object for XML
-  x.overrideMimeType("application/json");  //overridwe file paramenter into our json file
-  x.open("GET",file,true); //getting our file
-  x.onreadystatechange=function(){
-    if(x.readyState === 4 && x.status == "200")  //"=== " for same value comparison ,200 for succes msg
-    {
-      callback(x.responseText); //state "0"
-    }
-  };
-  x.send(null); //if data is not  present send null
-}
-  Loadjson("data.json",function(text) //stage 1
-  {
-    var data = JSON.parse(text); //linking json file with js
-    console.log(data); //getting data to console
-    basics(data.details);
-    basics1(data.career);
-    education(data.education);
-    keyskills(data.keyskills);//function call and get details
-    Achievements(data.Achievements);
+// function Loadjson(file,callback){
+//   var x= new XMLHttpRequest(); //create object for XML
+//   x.overrideMimeType("application/json");  //overridwe file paramenter into our json file
+//   x.open("GET",file,true); //getting our file
+//   x.onreadystatechange=function(){
+//     if(x.readyState === 4 && x.status == "200")  //"=== " for same value comparison ,200 for succes msg
+//     {
+//       callback(x.responseText); //state "0"
+//     }
+//   };
+//   x.send(null); //if data is not  present send null
+// }
+//   Loadjson("data.json",function(text) //stage 1
+//   {
+//     var data = JSON.parse(text); //linking json file with js
+//     console.log(data); //getting data to console
+//     basics(data.details);
+//     basics1(data.career);
+//     education(data.education);
+//     keyskills(data.keyskills);//function call and get details
+//     Achievements(data.Achievements);
+//
+//   })
 
+function loadjson(file)
+{
+  return new Promise((resolve,reject)=>{
+    return fetch(file).then(response=>{
+      if(response.ok){
+        resolve(response.json());
+      }else{
+        reject(new Error('error'));
+      }
+    })
   })
+}
+
+var file=loadjson("data.json");
+file.then(data=>{
+  console.log(data);
+  basics(data.details);
+  careerinfo(data.career);
+  education(data.education);
+  skillset(data.keyskills);
+  Achievements(data.Achievements);
+})
 
   var child1=document.querySelector(".child1");
   var child2=document.querySelector(".child2"); //crearting var to child 1 by selecting that class using querySelector
@@ -53,7 +76,7 @@ function Loadjson(file,callback){
       var hr= document.createElement("hr");
       child1.appendChild(hr);
 }
-  function basics1(det1){
+  function careerinfo(det1){
 
 
     var add3= document.createElement("h2");
@@ -94,9 +117,10 @@ function Loadjson(file,callback){
       ul.appendChild(li2);
       child2.appendChild(ul);
     }
+  }
 
 
-      function keyskills(key){
+      function skillset(key){
         var key1=document.createElement("h4");
         key1.textContent = "Technical Skills";
         child2.appendChild(key1);
@@ -123,16 +147,23 @@ function Loadjson(file,callback){
        key2.textContent = "Achievements";
      child2.appendChild(key2);
 
-         var one1= document.createElement("h5");
-         one1.textContent=ach.one;
-         child2.appendChild(one1);
+    var ul=document.createElement("ul");
+    var li=document.createElement("li");
+    li.textContent=ach.one;
+    ul.appendChild(li);
 
-         var one2= document.createElement("h5");
-         one2.textContent = ach.two;
-         child2.appendChild(one2);
+    var li2=document.createElement("li");
+    li2.textContent=ach.two;
+    ul.appendChild(li2);
 
-         var one3= document.createElement("h5");
-       one3.textContent = ach.three;
-         child2.appendChild(one3);
+    var li3=document.createElement("li");
+    li3.textContent=ach.three;
+    ul.appendChild(li3);
+    child2.appendChild(ul);
+
+
+
+
+
 
    }
