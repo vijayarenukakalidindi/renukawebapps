@@ -1,0 +1,49 @@
+{
+  "details":{
+    "image":"koala.jpg",
+    "name":"Renuka",
+    "phoneno":"9951701597",
+    "email":"vijayarenuka179@gmail.com",
+    "address":"srkr enginnering college,bhimavaam"
+  },
+  "career":{
+    "info": "to pursue a challenging career in information technology"
+
+},
+"education":[{
+  "degree":"Btech",
+  "institute": "SRKR college",
+  "date":["2016-2020,86%"]
+},
+ {
+  "degree":"inter mediate",
+  "institute":"aditya",
+  "date":["2014-2016","98%"]
+  },
+ {
+  "degree":"SSC",
+  "institute":"divine mercy",
+  "date":["2014","98%"]
+}],
+
+"keyskills":[
+  {
+    "title":"programming language:",
+    "info":["c,c++,java,python,ruby"]
+  },
+  {
+  "title":"Operating systems:",
+  "info":["windows,linux,mac,ubuntu"]
+},
+  {
+    "title":"Databases:",
+    "info":["oracle,sql"]
+  }
+],
+"Achievements":[{
+  "one":"joining in srkr college",
+  "two":"cfbwygeuighr",
+  "three":"spellbe runner"
+}]
+
+}
